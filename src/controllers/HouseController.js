@@ -1,11 +1,19 @@
+import { houseService } from "../services/HouseService.js";
 import BaseController from "../utils/BaseController.js";
 
 export class HouseController extends BaseController {
   constructor() {
     super('api/houses')
-    this.router.get('', this.test)
+    this.router.get('', this.getHouses)
   }
-  test() {
-    console.log('test successs from homes');
+  async getHouses(request, response, next) {
+    try {
+      const houses = await houseService.getHouses()
+      response.send(houses)
+    } catch (error) {
+      next(error)
+
+    }
   }
+
 }

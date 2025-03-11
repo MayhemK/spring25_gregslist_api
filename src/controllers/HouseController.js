@@ -1,12 +1,11 @@
 import BaseController from "../utils/BaseController.js";
 
-export class PetsController extends BaseController {
+export class HouseController extends BaseController {
   constructor() {
-    super('api/pets')
+    super('api/houses')
     this.router.get('', this.test)
   }
   test() {
-    console.log('test Success');
-
+    console.log('test successs from homes');
   }
 }
